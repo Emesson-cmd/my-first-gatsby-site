@@ -1,10 +1,10 @@
 import * as React from 'react'
-import {Link} from 'gatsby'
 import Layout from '../components/layout'
+import Seo from '../components/seo'
 
 const AboutPage = () => {
     return (
-        <Layout pageTitle="About me">
+        <Layout pageTitle="About Me">
             <p>Hi there! My name is Emesson. I'm a software Engineer.</p>
             <p>My passion is building awsome virtual experiences creating Front-end and Back-end solutions.</p>
             <p>For hobbies I like playing soccer, reading and enjoying my family and friends' presence.</p>
@@ -13,6 +13,6 @@ const AboutPage = () => {
     )
 }
 
-export const Head = () => <title>About me</title>
+export const Head = () => <Seo title="About Me" />
 
 export default AboutPage
