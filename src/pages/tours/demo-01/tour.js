@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useTour } from '@reactour/tour';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const TourComponent = () => {
@@ -50,22 +48,27 @@ const TourComponent = () => {
 
       <button data-tour="3">Back Home 3</button>
 
-      <Modal show={modalIsOpen} onHide={() => setModalIsOpen(false)} animation={false}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setModalIsOpen(false)}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={() => setModalIsOpen(false)}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+
     </main>
   );
 };
+
+function SmallTest() {
+  const { isTourOpen, startTour, goTo, currentStep, setIsOpen } = useTour({
+    steps: [
+      {
+        selector: '.element-to-highlight',
+        content: 'This is an important element.',
+      },
+    ],
+  });
+
+  return (
+    <>
+      <button onClick={() => setIsOpen(true)}>Start Tour</button>
+      <h3 className="element-to-highlight">element to highlight</h3>
+    </>
+  );
+}
 
 export default TourComponent;
