@@ -1,9 +1,21 @@
-import * as React from 'react';
+import React from "react";
+import { TourProvider } from "@reactour/tour";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import App from "./App";
+import steps from "./steps";
 
-const TourDemo02 = () => {
+function TourDemo02() {
+  const disableBody = (target) => disableBodyScroll(target);
+  const enableBody = (target) => enableBodyScroll(target);
   return (
-      <h1>Tour demo 02</h1>
+    <TourProvider
+      steps={steps}
+      afterOpen={disableBody}
+      beforeClose={enableBody}
+    >
+      <App />
+    </TourProvider>
   );
-};
+}
 
-export default TourDemo02;
+export default TourDemo02
