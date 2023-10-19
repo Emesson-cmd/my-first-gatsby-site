@@ -7,7 +7,7 @@ import { demoContainer, navLinks, navItems, navItemSelected } from './index.modu
 const TourPage = () => {
   const [selected, setSelected] = React.useState(0);
   const navLinkItems = [ 'Demo 04'];
-  const demoList = [, <TourDemo04 />];
+  const demoList = [<TourDemo04 />];
 
   return (
     <Layout pageTitle="Tour Examples">
